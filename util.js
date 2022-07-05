@@ -20,6 +20,31 @@ const query = (sql, callback) => {
     })
 }
 
+/*
+    返回消息的结构
+    errcode: 0 成功 ,1 参数错误, 2 其他错误
+    message: 请求结果信息
+    data: 返回给前端的数据
+*/
+const returnMsg = (errcode, message, data) => ({
+    errcode: errcode || 0,
+    message: message || '',
+    data: data || {},
+});
+
+/*
+    数据库操作的Promise封装
+*/
+const queryFn = (sql) => {
+    return new Promise((resolve,reject)=>{
+        query(sql,(err, rows) => {
+            if(err)
+                reject(err);
+            resolve(rows);
+        })
+    }) 
+}
+
 module.exports={
-    host, port, query
+    host, port, query ,returnMsg, queryFn
 }

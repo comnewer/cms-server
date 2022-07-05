@@ -1,5 +1,5 @@
 {
-  "name": "koa-study",
+  "name": "cms-server",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -11,6 +11,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "jsonwebtoken": "^8.5.1",
+    "koa-bodyparser": "^4.3.0",
     "koa-router": "^10.1.1",
     "koa-static": "^5.0.0",
     "koa2": "^2.0.0-alpha.7",

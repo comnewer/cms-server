@@ -10,6 +10,7 @@ const path = require("path");
 
 const app = new koa();
 const router = new Router();
+const bodyParser = require('koa-bodyparser');
 
 router.get('/',async ctx => {
     ctx.body='home';
@@ -27,6 +28,7 @@ app.use(async (ctx, next) => {
 })
 
 app.use(cors());
+app.use(bodyParser());
 app.use(router.routes(),router.allowedMethods());
 app.use(static(path.join(__dirname,'static')));
 app.listen(port,()=>{
