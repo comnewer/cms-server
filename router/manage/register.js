@@ -19,7 +19,9 @@ router.post('/',async ctx => {
         ctx.body = returnMsg(2, '失败', '用户名已存在');        
     }else{
         //注册成功
-        let sql=`INSERT INTO user VALUES(null,'${username}','${password}',null,'avatar.jpg')`;
+        //editable 0 表示没有编辑权限
+        //player 'normal' 普通用户， 'vip' 管理员
+        let sql=`INSERT INTO user VALUES(null,'${username}','${password}',null,'avatar.jpg','normal',0)`;
         let res = await queryFn(sql);
         ctx.body = returnMsg(0, '注册成功');
     }

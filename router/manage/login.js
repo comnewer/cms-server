@@ -31,6 +31,8 @@ router.post('/',async ctx => {
                 username: res_saved[0].username,
                 'cms-token': res_saved[0].token,
                 avatar: res_saved[0].avatar,
+                player: res_saved[0].player,
+                editable: res_saved[0].editable,
             }
             ctx.body = returnMsg(0, '登陆成功', userInfo);
         }else{

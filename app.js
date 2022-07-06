@@ -31,6 +31,7 @@ app.use(cors());
 app.use(bodyParser());
 app.use(router.routes(),router.allowedMethods());
 app.use(static(path.join(__dirname,'static')));
+app.use(static(path.join(__dirname,'router/manage/upload')));
 app.listen(port,()=>{
     console.log(`sever is running at ${host}:${port}`);
 })

@@ -1,5 +1,5 @@
 const mysql = require("mysql");
-
+const jwt = require("jsonwebtoken");
 let host="http://localhost";
 let port=3001;
 
@@ -45,6 +45,15 @@ const queryFn = (sql) => {
     }) 
 }
 
+const jwtVerify = (token) => {
+    try{
+        jwt.verify(token,'zhaowenxian');
+    }catch(err){
+        return false;
+    }
+    return true;
+}
+
 module.exports={
-    host, port, query ,returnMsg, queryFn
+    host, port, query ,returnMsg, queryFn, jwtVerify
 }
