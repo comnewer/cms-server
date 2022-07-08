@@ -1,7 +1,6 @@
 const Router = require("koa-router");
 const {returnMsg, queryFn} = require("../../util");
 const jwt = require("jsonwebtoken");
-
 const router = new Router();
 
 router.post('/',async ctx => {
