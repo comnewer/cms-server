@@ -27,7 +27,13 @@ app.use(async (ctx, next) => {
     }
 })
 
-//app.use(cors());
+app.use(cors({
+    origin:function(ctx){
+        if(ctx.url='/manage/upload'){
+            return '*';
+        }
+    }
+}));
 app.use(bodyParser());
 app.use(router.routes(),router.allowedMethods());
 app.use(static(path.join(__dirname,'static')));
